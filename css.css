@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'CoFoRobert';
+    src: url('fonts/CoFoRobert-MediumItalic.ttf') format('truetype');
+    font-weight: normal;   /* или укажите реальный вес, если знаете */
+    font-style: normal;    /* если файл уже содержит нужный стиль, оставьте normal */
+    font-display: swap;
+}
+
 /* Regular */
 @font-face {
     font-family: 'CoFoSans';
@@ -71,7 +79,7 @@ body {
 
 /* Общий контейнер для текстовых блоков (центрированный) */
 .container {
-    width: 870px;
+    width: 100%;
     margin: 0 auto;
     padding: 40px 20px;
     box-sizing: border-box;
@@ -106,9 +114,11 @@ body {
 
 /* Блок с заголовком и строками */
 .text-block {
-    width: 1600px;
+    width: 100%;
+    max-width: 1600px; /* ограничение, но не жёсткая ширина */
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 .section-header {
     margin-bottom: 30px;
@@ -174,6 +184,24 @@ body {
     color: #007BFC;
     transition: color 1s ease;
 }
+
+.text_tiny {
+    font-family: 'CoFoSans', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: #5BABFF;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.text_Robert_It {
+    font-family: 'CoFoRobert', sans-serif;
+    font-size: 90px;
+    line-height: 1;
+    color: #5BABFF;
+    text-align: center;
+}
+
 .icon-small,
 .icon-large {
     display: inline-flex;
@@ -210,8 +238,8 @@ body {
 }
 .section-lines__text {
     font-family: 'CoFoSans', sans-serif;
-    font-size: 40px;
-    line-height: 1.2;
+    font-size: 90px;
+    line-height: 1;
     color: #5BABFF;
     text-align: center;
 }
@@ -227,16 +255,50 @@ body {
 .section-lines::after {
     content: '';
     position: absolute;
-    top: 150px;
+    top: 220px;
     height: 2px;
     background-color: #007BFC;
     pointer-events: none;
 }
 .section-lines::before {
     left: 0;
-    width: calc(50% - 640px);
+    width: calc(50% - 440px);
 }
 .section-lines::after {
     right: 0;
-    width: calc(50% - 640px);
+    width: calc(50% - 440px);
+}
+.parent {
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    height: 28vh;           /* или любая высота */
+    max-width: 100%;
+}
+
+/* Контейнер с видео – используем Grid */
+.video-grid {
+    width: 100%;
+    max-width: 1600px;        /* ограничиваем ширину, как у других блоков */
+    margin: 40px auto;        /* центрируем и даём отступы сверху/снизу */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки равной ширины */
+    gap: 20px;                /* расстояние между видео (можно менять) */
+    box-sizing: border-box;
+}
+
+/* Сами видео */
+.video-grid video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;      /* квадратное соотношение сторон */
+    object-fit: cover;        /* видео заполняет квадрат без искажений (обрезается) */
+    background-color: #000;
+    border-radius: 8px;       /* скругление углов – опционально */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
