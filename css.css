@@ -75,6 +75,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #0F1011;
+    overflow-x: hidden;
 }
 
 /* Общий контейнер для текстовых блоков (центрированный) */
@@ -120,6 +121,15 @@ body {
     padding: 40px 20px;
     box-sizing: border-box;
 }
+
+.text-container {
+    width: 920px;
+    max-width: 100%;   /* чтобы на маленьких экранах не вылезал */
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
 .section-header {
     margin-bottom: 30px;
 }
@@ -155,15 +165,11 @@ body {
     margin-top: -55px;
 }
 
-.row.row-1 {
-    position: relative;
-    left: 0;
-    padding: 120px; /* возможно, лишнее, но оставлено как есть */
-}
-.row.row-2 { position: relative; left: 600px; }
-.row.row-3 { position: relative; left: 240px; }
-.row.row-4 { position: relative; left: 850px; }
-.row.row-5 { position: relative; left: 100px; }
+.row.row-1 { position: relative; left: 15px; margin-top: 90px; }
+.row.row-2 { position: relative; left: 800px; }
+.row.row-3 { position: relative; left: 180px; }
+.row.row-4 { position: relative; left: 580px; }
+.row.row-5 { position: relative; left: 50px; }
 .row.row-6 { position: relative; left: 500px; }
 
 .left-group {
@@ -272,33 +278,64 @@ body {
     display: flex;
     justify-content: center; /* по горизонтали */
     align-items: center;     /* по вертикали */
-    height: 28vh;           /* или любая высота */
     max-width: 100%;
 }
 
 /* Контейнер с видео – используем Grid */
 .video-grid {
     width: 100%;
-    max-width: 1600px;        /* ограничиваем ширину, как у других блоков */
-    margin: 40px auto;        /* центрируем и даём отступы сверху/снизу */
+    max-width: 1600px;
+    margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки равной ширины */
-    gap: 20px;                /* расстояние между видео (можно менять) */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* или auto-fit, как хотите */
+    gap: 20px;
     box-sizing: border-box;
 }
 
-/* Сами видео */
 .video-grid video {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;      /* квадратное соотношение сторон */
-    object-fit: cover;        /* видео заполняет квадрат без искажений (обрезается) */
     background-color: #000;
-    border-radius: 8px;       /* скругление углов – опционально */
+    border-radius: 8px;
+    display: block;
+}
+
+
+/* Контейнер для видео – одна строка с прокруткой */
+.video-row {
+    display: flex;
+    gap: 20px;                    /* расстояние между видео */
+    max-width: 1920px;           /* ограничение ширины контейнера */
+    margin: 20px auto;           /* центрирование и отступы */
+    overflow-x: auto;            /* горизонтальная прокрутка при необходимости */
+    padding-bottom: 10px;        /* небольшой отступ снизу, чтобы полоса прокрутки не наезжала */
+    justify-content: center;
+}
+
+/* Сами видео */
+.video-row video {
+    height: 550px;               /* фиксированная высота – подберите нужную */
+    width: auto;                 /* ширина автоматическая, сохраняет пропорции */
+    background-color: #000;
+    border-radius: 8px;
+    flex-shrink: 0;              /* запрещаем сжатие видео, чтобы они не уменьшались */
+}
+
+.content-block {
+    margin-bottom: 40px; /* расстояние между блоками */
+    background-color: #0F1011;
+}
+
+.mejstroka p {
+    line-height: 0.1;          /* межстрочный интервал внутри абзаца */
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+body > *:not(.blue-section):not(:last-child) {
+    margin-bottom: 100px;
 }
