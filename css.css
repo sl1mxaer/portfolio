@@ -99,6 +99,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 .blue-section .container {
     display: flex;
@@ -131,8 +132,13 @@ body {
     box-sizing: border-box;
 }
 
+.text-container p {
+    text-align: justify;
+}
+
 .section-header {
     margin-bottom: 30px;
+    margin-top: -100px;
 }
 .section-header h2 {
     font-family: 'CoFoSans', sans-serif;
@@ -310,7 +316,8 @@ body {
     margin: 20px auto;           /* центрирование и отступы */
     overflow-x: auto;            /* горизонтальная прокрутка при необходимости */
     padding-bottom: 10px;        /* небольшой отступ снизу, чтобы полоса прокрутки не наезжала */
-    justify-content: center;
+    justify-
+    : center;
 }
 
 /* Сами видео */
@@ -349,7 +356,7 @@ body {
 .buttons-container {
     position: absolute;
     top: 67%;
-    left: 50%;
+    left: 53%;
     transform: translate(-50%, -50%);
     display: flex;
     gap: 12px;
@@ -399,4 +406,25 @@ body > *:not(.blue-section):not(:last-child) {
 
 h1 {
     font-weight: 300;
+}
+
+/* Основной контейнер панели управления */
+video::-webkit-media-controls-panel {
+    background: rgba(128, 128, 128, 0.1) !important; /* серый, 20% непрозрачности */
+}
+
+/* Оболочка панели (если нужно изменить общий фон) */
+video::-webkit-media-controls-enclosure {
+    background: transparent !important;
+}
+
+/* Кнопки и ползунки могут иметь свои фоны, но если нужно убрать их собственные фоны */
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-volume-slider,
+video::-webkit-media-controls-mute-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display,
+video::-webkit-media-controls-fullscreen-button {
+    background: # !important;
 }
