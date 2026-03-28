@@ -349,7 +349,7 @@ body {
 .buttons-container {
     position: absolute;
     top: 67%;
-    left: 53%;
+    left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     gap: 12px;
