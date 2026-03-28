@@ -76,6 +76,7 @@ body {
     padding: 0;
     background-color: #0F1011;
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Общий контейнер для текстовых блоков (центрированный) */
@@ -93,7 +94,7 @@ body {
 /* Синяя секция с логотипом */
 .blue-section {
     width: 100%;
-    height: 400px;
+    height: 600px;
     background-color: #007BFC;
     display: flex;
     align-items: center;
@@ -187,7 +188,7 @@ body {
 .text {
     font-family: 'CoFoSans', sans-serif;
     font-size: 40px;
-    color: #007BFC;
+    color: #5BABFF;
     transition: color 1s ease;
 }
 
@@ -330,6 +331,62 @@ body {
     line-height: 0.1;          /* межстрочный интервал внутри абзаца */
 }
 
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #007BFC; /* тот же синий, что в .blue-section */
+    /* если нужно, можно добавить внутренние отступы или убрать margin */
+}
+
+.footer-image {
+    width: 1560px;
+    max-width: 100%;        /* чтобы на узких экранах картинка не вылезала */
+    height: auto;
+    display: block;
+    margin: 0 auto;         /* центрирует картинку по центру родителя */
+}
+
+.buttons-container {
+    position: absolute;
+    top: 67%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 12px;
+    width: 777px;
+    height: 119px;
+    /* при необходимости можно добавить background для отладки */
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'CoFoSans', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    border-radius: 53px;
+    transition: background 0.2s ease;
+    box-sizing: border-box;
+}
+
+.btn-left {
+    width: 310px;
+    height: 80px;
+    background-color: #FFFFFF;
+    color: #007BFC;
+    text-decoration: none;
+}
+
+.btn-right {
+    width: 310px;
+    height: 80px;
+    background-color: #0F1011;
+    color: #007BFC;
+    text-decoration: underline;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -338,4 +395,8 @@ img {
 
 body > *:not(.blue-section):not(:last-child) {
     margin-bottom: 100px;
+}
+
+h1 {
+    font-weight: 300;
 }
