@@ -316,8 +316,7 @@ body {
     margin: 20px auto;           /* центрирование и отступы */
     overflow-x: auto;            /* горизонтальная прокрутка при необходимости */
     padding-bottom: 10px;        /* небольшой отступ снизу, чтобы полоса прокрутки не наезжала */
-    justify-
-    : center;
+    justify-content: center;
 }
 
 /* Сами видео */
@@ -426,5 +425,123 @@ video::-webkit-media-controls-timeline,
 video::-webkit-media-controls-current-time-display,
 video::-webkit-media-controls-time-remaining-display,
 video::-webkit-media-controls-fullscreen-button {
-    background: # !important;
+}
+
+
+/* Для планшетов и мобильных (ширина экрана меньше 1200px) */
+@media (max-width: 1200px) {
+    /* Уменьшаем ширину контейнера для строк */
+    .row {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        gap: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    /* Убираем относительное позиционирование и сдвиги */
+    .row.row-1,
+    .row.row-2,
+    .row.row-3,
+    .row.row-4,
+    .row.row-5,
+    .row.row-6 {
+        position: static;
+        left: 0;
+        margin-top: 10px;
+    }
+    /* Уменьшаем размер текста в строках */
+    .text {
+        font-size: 28px;
+    }
+    .bracket {
+        font-size: 18px;
+    }
+    /* Подгоняем иконки */
+    .icon-small svg,
+    .icon-large svg {
+        width: 60%;
+    }
+    /* Отступы между строками */
+    .row + .row {
+        margin-top: -35px;
+    }
+    /* Текстовые блоки */
+    .text-container {
+        width: 90%;
+        padding: 20px;
+    }
+    .text-container p {
+        font-size: 18px;
+        text-align: left;
+    }
+    /* Заголовок блока Направления работы */
+    .section-header h2 {
+        font-size: 32px;
+    }
+    /* Видео-сетки */
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 0 15px;
+    }
+    /* Видео-ряд (горизонтальная прокрутка) */
+    .video-row {
+        gap: 10px;
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    .video-row video {
+        height: 300px; /* уменьшаем высоту на мобильных */
+    }
+    /* Футер: кнопки */
+    .buttons-container {
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 10px;
+    }
+    .btn-left, .btn-right {
+        width: 45%;
+        height: auto;
+        font-size: 18px;
+        padding: 12px 0;
+        border-radius: 30px;
+    }
+    .footer-image {
+        width: 100%;
+    }
+}
+
+/* Для очень маленьких экранов (телефоны до 768px) */
+@media (max-width: 768px) {
+    .text {
+        font-size: 22px;
+    }
+    .bracket {
+        font-size: 16px;
+    }
+    .icon-small svg,
+    .icon-large svg {
+        width: 50%;
+    }
+    .section-header h2 {
+        font-size: 28px;
+    }
+    .video-grid {
+        grid-template-columns: 1fr; /* по одному видео в ряд */
+    }
+    .video-row video {
+        height: 200px;
+    }
+    .btn-left, .btn-right {
+        font-size: 14px;
+        padding: 8px 0;
+        border-radius: 25px;
+    }
+    .buttons-container {
+        gap: 8px;
+    }
 }
