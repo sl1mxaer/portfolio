@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио Motion</title>
     <link rel="stylesheet" href="css.css">
-    
+    <script>
+        (function () {
+            const isMobileViewport = window.matchMedia('(max-width: 900px)').matches;
+            const isMobilePage = /mobile\.html$/i.test(window.location.pathname);
+
+            if (isMobileViewport && !isMobilePage) {
+                window.location.replace('mobile.html');
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="blue-section">
@@ -129,24 +138,6 @@
                                 </span>
                                 </div>
                                 
-            <div class="row row-6">
-                                <span class="left-group">
-                                    <span class="bracket">[</span>
-                                    <span class="icon-small">
-                                        <svg width="29" height="29" viewBox="0 0 29 29" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M28.4172 13.6388L19.474 10.0391C19.2395 9.94458 19.0542 9.75923 18.9596 9.52472L15.3599 0.581563C15.0485 -0.193854 13.9503 -0.193854 13.6388 0.581563L10.0391 9.52598C9.94458 9.7605 9.75923 9.94584 9.52472 10.0404L0.581563 13.6401C-0.193854 13.9515 -0.193854 15.0497 0.581563 15.3612L9.52598 18.9596C9.76049 19.0542 9.94584 19.2395 10.0404 19.474L13.6401 28.4172C13.9515 29.1926 15.0497 29.1926 15.3612 28.4172L18.9609 19.474C19.0554 19.2395 19.2408 19.0542 19.4753 18.9596L28.4184 15.3599C29.1939 15.0485 29.1939 13.9503 28.4184 13.6388H28.4172Z" fill="3F4041"/>
-                                        </svg>
-                                    </span>
-                                    <span class="bracket">]</span>
-                                </span>
-                                <span class="text">Эксперименты с 3D</span>
-                                    <span class="icon-large">
-                                        <svg width="255" height="246" viewBox="0 0 255 246" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M252.204 118.037L132.466 2.11774C129.556 -0.705913 124.925 -0.705913 122.027 2.11774L2.28889 118.037C0.823581 119.449 0 121.396 0 123.428V238.492C0 242.642 3.36915 246 7.50837 246H53.0718C57.2217 246 60.5802 242.631 60.5802 238.492V185.88C60.5802 181.73 63.9493 178.371 68.0886 178.371H94.2929C98.4428 178.371 101.791 181.741 101.791 185.88V238.492C101.791 242.642 105.16 246 109.299 246H246.984C251.134 246 254.492 242.631 254.492 238.492V123.428C254.492 121.396 253.669 119.449 252.204 118.037Z" fill="3F4041"/>
-                                        </svg>
-                                </span>
-            </div>
-
 <div class="parent content-block">
     <img src="images/2.png" draggable="false" alt="">
 </div>
@@ -449,5 +440,3 @@
 </div>
 </body>
 </html>                                
-
-
