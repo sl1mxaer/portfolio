@@ -553,7 +553,7 @@ body.mobile-page {
 .mobile-page .mobile-shell {
     width: min(100%, 430px);
     margin: 0 auto;
-    padding: 16px 14px 8px;
+    padding: 16px 14px 0;
     box-sizing: border-box;
 }
 
@@ -617,19 +617,23 @@ body.mobile-page {
     line-height: 1.05;
     font-weight: 500;
     color: #5BABFF;
+    text-align: left;
 }
 
 .mobile-page .mobile-title-line {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
+    width: 100%;
 }
 
 .mobile-page .mobile-title-line::after {
     content: "";
-    width: calc(100% - 18px);
+    width: 100%;
     height: 5px;
+    margin-top: 8px;
+    margin-bottom: 16px;
     border-radius: 999px;
     background: #5BABFF;
 }
@@ -662,10 +666,11 @@ body.mobile-page {
     min-height: 52px;
     padding: 10px 14px;
     border-radius: 18px;
-    background: #3F4041;
+    background: #5BABFF;
     border: none;
     color: #FFFFFF;
     text-align: center;
+    font-size: 26px;
     line-height: 1.25;
     text-decoration: none;
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -699,17 +704,13 @@ body.mobile-page {
 .mobile-page .media-grid img {
     width: 100%;
     display: block;
-    border-radius: 22px;
+    border-radius: 12px;
     background: #050505;
     overflow: hidden;
 }
 
 .mobile-page .mobile-directions img {
     border-radius: 22px;
-}
-
-.mobile-page .mobile-directions-image {
-    margin-bottom: 28px;
 }
 
 .mobile-page .mobile-outro {
@@ -720,7 +721,7 @@ body.mobile-page {
     position: relative;
     width: calc(100% - 28px);
     max-width: 402px;
-    margin: 4px auto 0;
+    margin: -50px auto 0;
     overflow: hidden;
     border-radius: 28px;
 }
@@ -734,11 +735,11 @@ body.mobile-page {
 }
 
 .mobile-page .buttons-container {
-    width: calc(100% - 28px);
+    width: calc(100% - 60px);
     height: auto;
-    top: 478px;
-    left: 14px;
-    right: 14px;
+    top: 475px;
+    left: 30px;
+    right: 30px;
     transform: none;
     display: grid;
     grid-template-columns: 1fr;
@@ -750,7 +751,8 @@ body.mobile-page {
     min-height: 56px;
     padding: 14px 18px;
     border-radius: 999px;
-    font-size: 18px;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 @media (max-width: 420px) {
